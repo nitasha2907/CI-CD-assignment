@@ -19,18 +19,14 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install Dependencies
-        run: npm install
-
       - name: Run Tests
-        run: npm test
+        run: node tests/test.js
 
-      # Task 4: Packaging / Artifact Creation Process
       - name: Validate & Package Artifacts
         run: |
           mkdir -p dist
           cp -r src/* dist/
-          echo "Packaging completed successfully. Dist folder created."
+          echo "Build packaging successful."
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
